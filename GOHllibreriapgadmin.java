@@ -126,16 +126,16 @@ public class GOHllibreriapgadmin {
         System.out.println("entra la ID d'usuari: ");
         int id = entrada.nextInt();
         entrada.nextLine();
-        System.out.println("entra Nom d'usuari: ");
+        System.out.println("entra el Nom d'usuari: ");
         String nom = entrada.nextLine();
-        System.out.println("entra Gemes d'usuari: ");
+        System.out.println("entra les Gemes d'usuari: ");
         int gemes = entrada.nextInt();
         entrada.nextLine();
-        System.out.println("entra Oro d'usuari: ");
+        System.out.println("entra l' Oro d'usuari: ");
         int oro = entrada.nextInt();
-        System.out.println("entra Nivell d'usuari: ");
+        System.out.println("entra el Nivell d'usuari: ");
         int nivell = entrada.nextInt();
-        System.out.println("entra Copes d'usuari: ");
+        System.out.println("entra les Copes d'usuari: ");
         int copes = entrada.nextInt();
 
         PreparedStatement updateAlum = connection.prepareStatement("INSERT INTO jugadors (id,nom,gemes,oro,nivell,copes) VALUES (?,?,?,?,?,?) ");
@@ -165,15 +165,15 @@ public class GOHllibreriapgadmin {
         System.out.println("Introdueix la id del jugador que vols modificar: ");
         int idMod = entrada.nextInt();
         entrada.nextLine();
-        System.out.println("entra Nom d'usuari: ");
+        System.out.println("entra el Nom d'usuari: ");
         String nomMod = entrada.nextLine();
-        System.out.println("entra Gemes d'usuari: ");
+        System.out.println("entra les Gemes d'usuari: ");
         int gemesMod = entrada.nextInt();
-        System.out.println("entra Oro d'usuari: ");
+        System.out.println("entra l' Oro d'usuari: ");
         int oroMod = entrada.nextInt();
-        System.out.println("entra Nivell d'usuari: ");
+        System.out.println("entra el Nivell d'usuari: ");
         int nivellMod = entrada.nextInt();
-        System.out.println("entra Copes d'usuari: ");
+        System.out.println("entra les Copes d'usuari: ");
         int copesMod = entrada.nextInt();
 
         PreparedStatement updateJugad = connection.prepareStatement("UPDATE jugadors SET Nom = ?, gemes=?, oro=?, nivell=?, copes=? WHERE id = ? ");
