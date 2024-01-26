@@ -162,7 +162,7 @@ public class GOHllibreriapgadmin {
         // Conectamos con la base de datos
         connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");// Aqui s'estableix com s'ha de conectar a la BDD de postgres.
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Introdueix la id del jugador que vols modificar: ");
+        System.out.println("Introdueix la id del jugador que vols modificar: ");// Ara en aquesta part li demano les dades que s'han de modificar a l'user.
         int idMod = entrada.nextInt();
         entrada.nextLine();
         System.out.println("entra el Nom d'usuari: ");
@@ -176,7 +176,7 @@ public class GOHllibreriapgadmin {
         System.out.println("entra les Copes d'usuari: ");
         int copesMod = entrada.nextInt();
 
-        PreparedStatement updateJugad = connection.prepareStatement("UPDATE jugadors SET Nom = ?, gemes=?, oro=?, nivell=?, copes=? WHERE id = ? ");
+        PreparedStatement updateJugad = connection.prepareStatement("UPDATE jugadors SET Nom = ?, gemes=?, oro=?, nivell=?, copes=? WHERE id = ? ");// I inserto les dades a la taula adequada.
 
         updateJugad.setInt(6, idMod);
         updateJugad.setString(1, nomMod);
@@ -184,27 +184,24 @@ public class GOHllibreriapgadmin {
         updateJugad.setInt(3, oroMod);
         updateJugad.setInt(4, nivellMod);
         updateJugad.setInt(5, copesMod);
-        updateJugad.executeUpdate();
+        updateJugad.executeUpdate();// I aqui li dic que actualitzi les dades de la taula a les noves dades introduides.
 
         connection.close();
 
     }
 
-    private static String mostraNomJugador(int id) throws SQLException {
+    private static String mostraNomJugador(int id) throws SQLException {// Aqui hi ha un troç de codi que s'encarrega de mostrar el nom dels jugadors.
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");// Aqui declaro que utilitzarem el driver de postgres.
         } catch (ClassNotFoundException ex) {
-            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
+            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);// I aqui que indiqui si ha fallat a carregar el driver.
         }
         Connection connection = null;
         // Database connect
         // Conectamos con la base de datos
-        connection = DriverManager.getConnection(
-                "jdbc:postgresql://127.0.0.1:5432/clash",
-                "postgres", "Lsg-1234");
-
+        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash","postgres", "Lsg-1234");// Aqui s'estableix com s'ha de conectar a la BDD de postgres.
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT Nom FROM jugadors where id=" + id);
+        ResultSet rs = stmt.executeQuery("SELECT Nom FROM jugadors where id=" + id);// Aixo ho aconseguim amb la ID del jugador.
 
         while (rs.next()) {
             return rs.getString("Nom");
@@ -212,7 +209,7 @@ public class GOHllibreriapgadmin {
         return "";
     }
 
-    private static int idNouJugador() throws SQLException {
+    private static int idNouJugador() throws SQLException {// I aquesta part d'aqui es per configurar la ID d'un nou jugador.
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -220,10 +217,7 @@ public class GOHllibreriapgadmin {
         }
 
         Connection connection = null;
-        connection = DriverManager.getConnection(
-                "jdbc:postgresql://127.0.0.1:5432/clash",
-                "postgres", "Lsg-1234");
-
+        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash","postgres", "Lsg-1234");// Aqui s'estableix com s'ha de conectar a la BDD de postgres.
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT ID FROM jugadors Order by id DESC");
 
