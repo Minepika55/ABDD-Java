@@ -138,7 +138,7 @@ public class GOHllibreriapgadmin {
         System.out.println("entra les Copes d'usuari: ");
         int copes = entrada.nextInt();
 
-        PreparedStatement updateAlum = connection.prepareStatement("INSERT INTO jugadors (id,nom,gemes,oro,nivell,copes) VALUES (?,?,?,?,?,?) ");// I inserto les dades a la taula adequada,
+        PreparedStatement updateAlum = connection.prepareStatement("INSERT INTO jugadors (id,nom,gemes,oro,nivell,copes) VALUES (?,?,?,?,?,?) ");// I inserto les dades a la taula adequada.
 
         updateAlum.setInt(1, id);
         updateAlum.setString(2, nom);
@@ -146,21 +146,21 @@ public class GOHllibreriapgadmin {
         updateAlum.setInt(4, oro);
         updateAlum.setInt(5, nivell);
         updateAlum.setInt(6, copes);
-        updateAlum.executeUpdate();
+        updateAlum.executeUpdate();// I aqui li dic que actualitzi les dades de la taula a les noves dades introduides.
 
     }
 
-    private static void exercici3() throws SQLException {
+    private static void exercici3() throws SQLException {// Ara aquesta part del codi serveix per modificar les dades d'un usuari que ja existeixi.
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");// Aqui declaro que utilitzarem el driver de postgres.
         } catch (ClassNotFoundException ex) {
-            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
+            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);// I aqui que indiqui si ha fallat a carregar el driver.
         }
 
         Connection connection = null;
         // Database connect
         // Conectamos con la base de datos
-        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");
+        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");// Aqui s'estableix com s'ha de conectar a la BDD de postgres.
         Scanner entrada = new Scanner(System.in);
         System.out.println("Introdueix la id del jugador que vols modificar: ");
         int idMod = entrada.nextInt();
@@ -236,15 +236,15 @@ public class GOHllibreriapgadmin {
     private static void exercici4() throws SQLException {
 
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");// Aqui declaro que utilitzarem el driver de postgres.
         } catch (ClassNotFoundException ex) {
-            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
+            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);// I aqui que indiqui si ha fallat a carregar el driver.
         }
 
         Connection connection = null;
         // Database connect
         // Conectamos con la base de datos
-        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");
+        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");// Aqui s'estableix com s'ha de conectar a la BDD de postgres.
 
         Scanner entrada = new Scanner(System.in);
 
@@ -290,15 +290,15 @@ public class GOHllibreriapgadmin {
     private static void exercici5() throws SQLException {
 
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");// Aqui declaro que utilitzarem el driver de postgres.
         } catch (ClassNotFoundException ex) {
-            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
+            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);// I aqui que indiqui si ha fallat a carregar el driver.
         }
 
         Connection connection = null;
         // Database connect
         // Conectamos con la base de datos
-        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");
+        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");// Aqui s'estableix com s'ha de conectar a la BDD de postgres.
 
         Scanner entrada = new Scanner(System.in);
 
