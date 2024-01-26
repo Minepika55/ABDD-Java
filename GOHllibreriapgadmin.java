@@ -227,7 +227,7 @@ public class GOHllibreriapgadmin {
         return 0;
     }
 
-    private static void exercici4() throws SQLException {
+    private static void exercici4() throws SQLException {// Aquesta part permet crear una partida nova ab totes les seves dades.
 
         try {
             Class.forName("org.postgresql.Driver");// Aqui declaro que utilitzarem el driver de postgres.
@@ -245,7 +245,7 @@ public class GOHllibreriapgadmin {
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM jugadors");
 
-        System.out.println("Introdueix la ID de partida:");
+        System.out.println("Introdueix la ID de partida:");// Ara en aquesta part li demano les dades de la partida a l'user.
         int id = entrada.nextInt();
         entrada.nextLine();
 
@@ -271,17 +271,17 @@ public class GOHllibreriapgadmin {
 
 
         
-   PreparedStatement updateAlum = connection.prepareStatement("INSERT INTO partides (id, idjug1, idjug2, resultat, tipus, temps) VALUES (?, ?, ?, ?, ?, ?)");
+   PreparedStatement updateAlum = connection.prepareStatement("INSERT INTO partides (id, idjug1, idjug2, resultat, tipus, temps) VALUES (?, ?, ?, ?, ?, ?)");// I inserto les dades a la taula adequada.
     updateAlum.setInt(1, id);
     updateAlum.setInt(2, idjug1);
     updateAlum.setInt(3, idjug2);
     updateAlum.setString(4, resultat);
     updateAlum.setString(5, tipus);
     updateAlum.setString(6, temps);
-    updateAlum.executeUpdate();
+    updateAlum.executeUpdate();// I aqui li dic que actualitzi les dades de la taula a les noves dades introduides.
     }
 
-    private static void exercici5() throws SQLException {
+    private static void exercici5() throws SQLException {// Per acabar, aquesta part del codi permet esborrar un usuari.
 
         try {
             Class.forName("org.postgresql.Driver");// Aqui declaro que utilitzarem el driver de postgres.
@@ -299,7 +299,7 @@ public class GOHllibreriapgadmin {
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM jugadors");
   
-        System.out.println("Entra la ID d'usuari que vols eliminar: ");
+        System.out.println("Entra la ID d'usuari que vols eliminar: ");// I aqui demano quin jugador s'ha d'esborrar a l'user.
         int id = entrada.nextInt();
         
         PreparedStatement updateJugad = connection.prepareStatement("Delete FROM jugadors WHERE id = ? ");
