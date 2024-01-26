@@ -85,20 +85,20 @@ public class GOHllibreriapgadmin {
         Connection connection = null;
         // Database connect
         // Conectamos con la base de datos
-        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");
+        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234"); //Aqui s'estableix com s'ha de conectar a la BDD de postgres.
 
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM jugadors");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM jugadors");// Aqui indico la taula de la qual ha d'extreure les dades.
 
-        while (rs.next()) {
+        while (rs.next()) {// Aqui el codi ha de llegir i anar mostrant per pantalla els jugadors.
 
             System.out.println("\n");
             System.out.println("Jugador Nom: " + rs.getString("Nom") + " nivell:" + rs.getInt("nivell") + " gemes:" + rs.getInt("gemes") + " oro:" + rs.getInt("oro") + " copes:" + rs.getInt("copes"));
 
-            Statement stmt2 = connection.createStatement();
+            Statement stmt2 = connection.createStatement();// Aqui indico la taula de la qual ha d'extreure les dades.
             ResultSet rs2 = stmt2.executeQuery("SELECT * FROM partides where idjug1=" + rs.getInt("id") + "OR idjug2=" + rs.getInt("id"));
 
-            while (rs2.next()) {
+            while (rs2.next()) {// Aqui el codi ha de llegir i anar mostrant per pantalla les partides.
                 System.out.println("Resultat: " + rs2.getString("Resultat"));
                 System.out.println("Jugador 1:" + mostraNomJugador(rs2.getInt("idjug1")) + " Jugador 2: " + mostraNomJugador(rs2.getInt("idjug2")));
 
