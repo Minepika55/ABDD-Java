@@ -138,7 +138,7 @@ public class GOHllibreriapgadmin {
         System.out.println("entra les Copes d'usuari: ");
         int copes = entrada.nextInt();
 
-        PreparedStatement updateAlum = connection.prepareStatement("INSERT INTO jugadors (id,nom,gemes,oro,nivell,copes) VALUES (?,?,?,?,?,?) ");
+        PreparedStatement updateAlum = connection.prepareStatement("INSERT INTO jugadors (id,nom,gemes,oro,nivell,copes) VALUES (?,?,?,?,?,?) ");// I inserto les dades a la taula adequada,
 
         updateAlum.setInt(1, id);
         updateAlum.setString(2, nom);
