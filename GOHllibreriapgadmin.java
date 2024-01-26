@@ -15,14 +15,10 @@ import java.util.Scanner;
  */
 public class GOHllibreriapgadmin {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws SQLException, IOException {
-        // TODO code application logic here
-        // TODO code application logic here
         int opcio = 0;
         menu();
+        
 //Loop del menu
         while (opcio != 9) {
 
@@ -79,11 +75,11 @@ public class GOHllibreriapgadmin {
     // We register the PostgreSQL driver
     // Registramos el driver de PostgresSQL
 
-    private static void exercici1() throws SQLException {
+    private static void exercici1() throws SQLException { // Opcio 1, la qual mostra tots els susuaris i les seves partides.
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");// Aqui declaro que utilitzarem el driver de postgres.
         } catch (ClassNotFoundException ex) {
-            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
+            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);// I aqui que indiqui si ha fallat a carregar el driver.
         }
 
         Connection connection = null;
