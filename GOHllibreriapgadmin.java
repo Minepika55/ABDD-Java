@@ -85,7 +85,7 @@ public class GOHllibreriapgadmin {
         Connection connection = null;
         // Database connect
         // Conectamos con la base de datos
-        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234"); //Aqui s'estableix com s'ha de conectar a la BDD de postgres.
+        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");// Aqui s'estableix com s'ha de conectar a la BDD de postgres.
 
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM jugadors");// Aqui indico la taula de la qual ha d'extreure les dades.
@@ -108,20 +108,20 @@ public class GOHllibreriapgadmin {
     }    // We register the PostgreSQL driver
     // Registramos el driver de PostgresSQL
 
-    private static void exercici2() throws SQLException {
+    private static void exercici2() throws SQLException {//Aqui el codi ha d'afegir un usuari nou amb tota la seva info a la taula d'usuaris.
 
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");// Aqui declaro que utilitzarem el driver de postgres.
         } catch (ClassNotFoundException ex) {
-            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
+            System.out.println("Error al registrar el driver de PostgreSQL: " + ex);// I aqui que indiqui si ha fallat a carregar el driver.
         }
 
         Connection connection = null;
         // Database connect
         // Conectamos con la base de datos
-        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");
+        connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/clash", "postgres", "Lsg-1234");// Aqui s'estableix com s'ha de conectar a la BDD de postgres.
 
-        Scanner entrada = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);// Ara en aquesta part li demano les dades del nou jugador a l'user.
 
         System.out.println("entra la ID d'usuari: ");
         int id = entrada.nextInt();
